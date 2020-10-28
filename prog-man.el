@@ -1,12 +1,12 @@
-;; lang-man.el --- Language manual File  -*- lexical-binding: t; -*-
+;; prog-man.el --- Programming Language Manual File  -*- lexical-binding: t; -*-
 
 ;; Copyright (c) 2020 Marc-Antoine Loignon
 
 ;; Author: Marc-Antoine Loignon <developer@lognoz.org>
 ;; Homepage: https://github.com/lognoz/lang-man
-;; Keywords: language manual
+;; Keywords: programming language manual
 ;; Package-Version: 0.1
-;; Package-Requires: ((emacs "26.1"))
+;; Package-Requires: ((emacs "24.5"))
 
 ;; This file is not part of GNU Emacs.
 
@@ -25,21 +25,20 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-;;; Commentary:
-
-;; Generate project rapidly by using template.
-;; https://github.com/lognoz/lang-man
-
 ;;; Code:
 
 ;;;###autoload
-(defun lang-man ()
+(defun prog-man ()
   "Launch manual by `major-mode'."
   (interactive)
   (if (derived-mode-p 'emacs-lisp-mode)
       (find-function-read)
     (let* ((mode (symbol-name major-mode))
-           (manual (intern (concat "lang-man-" mode))))
+           (manual (intern (concat "prog-man-" mode))))
       (if (fboundp manual)
           (funcall-interactively manual)
         (message "No manual found for '%s'" mode)))))
+
+(provide 'prog-man)
+
+;;; prog-man.el ends here
