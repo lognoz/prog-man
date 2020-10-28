@@ -1,9 +1,9 @@
-;; lang-man-php-mode.el --- PHP Language Manual File  -*- lexical-binding: t; -*-
+;; prog-man-php.el --- PHP Language Manual File  -*- lexical-binding: t; -*-
 
 ;; Copyright (c) 2020 Marc-Antoine Loignon
 
 ;; Author: Marc-Antoine Loignon <developer@lognoz.org>
-;; Homepage: https://github.com/lognoz/lang-man
+;; Homepage: https://github.com/lognoz/prog-man
 ;; Keywords: php language manual
 ;; Package-Version: 0.1
 ;; Package-Requires: ((emacs "24.5"))
@@ -27,10 +27,10 @@
 
 ;;; Code:
 
-(defvar lang-man-php-mode-path "https://www.php.net/manual/en/"
+(defvar prog-man-php-path "https://www.php.net/manual/en/"
   "The prefix path of php mode manual.")
 
-(defvar lang-man-php-mode-candidates
+(defvar prog-man-php-candidates
   '(("abs" . "function.abs.php")
     ("acos" . "function.acos.php")
     ("acosh" . "function.acosh.php")
@@ -9820,15 +9820,15 @@
   "The list of candidates for php mode manual.")
 
 ;;;###autoload
-(defun lang-man-php-mode (entry)
+(defun prog-man-php (entry)
   "Browse ENTRY in php website manual."
   (interactive
-    (list (completing-read "PHP manual entry: " lang-man-php-mode-candidates nil t)))
-  (let ((path (cdr (assoc entry lang-man-php-mode-alist))))
-    (browse-url (concat lang-man-php-mode-path path))
+    (list (completing-read "PHP manual entry: " prog-man-php-candidates nil t)))
+  (let ((path (cdr (assoc entry prog-man-php-candidates))))
+    (browse-url (concat prog-man-php-path path))
     (message "Browse '%s' in manual" entry)))
 
 
-(provide 'lang-man-php-mode)
+(provide 'prog-man-php)
 
-;;; lang-man-php-mode.el ends here
+;;; prog-man-php.el ends here
